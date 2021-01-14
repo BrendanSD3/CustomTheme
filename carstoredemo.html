@@ -20,7 +20,13 @@
           background-position: center;
          background-blend-mode: overlay;
       }
-    
+      .show{
+          display:block;
+      }
+    .hidden{
+        opacity: 0;
+        display: none;
+      }
   </style>
 
   <body data-spy="scroll" data-target="#navbar1" data-offset="60">
@@ -93,11 +99,11 @@
                                         <h1 class="display-2 text-primary"><span class="ion ion-ios-snow-outline"></span></h1>
                                         <h4 class="card-title text-primary">Find Your Car today </h4>
                                         <p class="card-text"></p>
-                                        <input type="text" placeholder="Search" id="text">
+                                        <input type="text"class="mb-4" placeholder="Search" id="text">
                                         <button onclick="searchbymake()" class="btn btn-primary" >Search</button>
                                     </div>
                                 </div>
-                                 <div id="count">Search Result count: </div>
+                              <div id="count"> </div>
                             </div>
                            
                             <div class="col-xl-8 mb-4">
@@ -108,15 +114,19 @@
                                             <th class="w-25">Make</th>
                                             <th class="w-50">Model</th>
                                             <th class="w-25">Year</th>
-                                            <th class="w-50">Price</th>
+                                            <th class="w-50">Price</th>   
+                                            
                                         </tr>
+                                        <span class="badge badge-pill badge-info">More Stock coming soon!</span>
                                     </thead>
+                               
                                     <tbody id="cars">
                                         
-                                      
-                                    </tbody>
+                                    </tbody> 
+                                  
                                 </table>
                             </div>
+                            <div class="spinner-border hidden" role="status" id="spinner"></div>
                             </div>
                         </div>
                     </div>
