@@ -19,7 +19,7 @@
         }
         return open.apply(this, args);
     };
-}();
+};
    
 const uri = geturi();
       //'https://cors-anywhere.herokuapp.com/https://mydotnetapi.herokuapp.com/api/cars';
