@@ -4,25 +4,12 @@
     $("[data-toggle=popover]").popover();
     $("[data-toggle=tooltip]").tooltip();
     
-    function geturi() {
-    var cors_api_host = 'cors-anywhere.herokuapp.com';
-    var cors_api_url = 'https://' + cors_api_host + '/';
-    var slice = [].slice;
-    var origin = window.location.protocol + '//' + window.location.host;
-    var open = XMLHttpRequest.prototype.open;
-    XMLHttpRequest.prototype.open = function() {
-        var args = slice.call(arguments);
-        var targetOrigin = /^https?:\/\/([^\/]+)/i.exec(args[1]);
-        if (targetOrigin && targetOrigin[0].toLowerCase() !== origin &&
-            targetOrigin[1] !== cors_api_host) {
-            args[1] = cors_api_url + args[1];
-        }
-        return open.apply(this, args);
-    };
-};
-   
-const uri = geturi();
-      //'https://cors-anywhere.herokuapp.com/https://mydotnetapi.herokuapp.com/api/cars';
+  jQuery.ajaxPrefilter(function(options) {
+    if (options.crossDomain && jQuery.support.cors) {
+        options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+    }
+});
+const uri = 'https://cors-anywhere.herokuapp.com/https://mydotnetapi.herokuapp.com/api/cars';
 const weather='api/WeatherForecast';
 let cars = [];
 
