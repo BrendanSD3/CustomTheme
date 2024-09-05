@@ -20,7 +20,7 @@
         return open.apply(this, args);
     };
 })();
-const uri = 'https://cors-anywhere.herokuapp.com/https://mydotnetapi.herokuapp.com/api/cars';
+const uri = 'https://bwall.zeabur.app/api/cars';
 const weather='api/WeatherForecast';
 let cars = [];
 
